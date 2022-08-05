@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            background-color: #000000;
+        }
+        .container{
+            
+            height: 500px;
+            width: 500px;
+ 
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            box-shadow: 15px 15px 30px #660300,
+                        -15px -15px 30px #ff0095;
+        }
+        .clock{
+            
+            height: 390px;
+            width:390px;
+          
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            background:linear-gradient( rgba(121, 5, 5, 0.5) 100%, rgba(170, 55, 55, 0.5)100%),url(clock.png);
+            background-size: 100%;
+            border-radius: 50%;
+            box-shadow: inset 15px 15px 30px #c80553,
+                        -15px -15px 30px #00ff55;
+        }
+        
+            #hr, #min, #sec{
+                position: absolute;
+                background: black;
+                border-radius: 10px; 
+                transform-origin: bottom;
+            }
+            #hr{
+                width: 1.8%;
+                height: 25%;
+                top: 25%;
+                left: 48.85%;
+                
+            }
+            #min{
+                width: 1.6%;
+                height: 30%;
+                top: 19%;
+                left: 48.9%;
+                opacity: 0.8;  
+            }
+            #sec{
+                width: 1%;
+                height: 31%;
+                top: 19%;
+                left: 49.25%;
+                
+                
+            }
+        
+        .clock::before{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border:3px solid black;
+            top: 180px;
+            left: 180px;
+           border-radius: 50%;
+            border-color: white;
+            background-color: black;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="clock">
+          <div id="hr"></div>
+          <div id="min"></div>
+          <div id="sec"></div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    setInterval(() => {
+    d = new Date();
+    htime = d.getHours();
+    mtime = d.getMinutes();
+    stime = d.getSeconds();
+    hrotation = 30*htime + mtime/2;
+    mrotation = 6*mtime;
+    srotation = 6*stime;
+      
+    hr.style.transform = `rotate(${hrotation}deg)`;
+    min.style.transform = `rotate(${mrotation}deg)`;
+    sec.style.transform = `rotate(${srotation}deg)`;
+    sec.style.backgroundColor="red";
+    
+}, 1000);
+</script>
+</html>
